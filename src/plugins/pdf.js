@@ -38,8 +38,8 @@ Plugin.prototype = {
       // run prince PDF generation
       var pdf = Prince();
 
-      if(_.get(config, 'pdf.log')) {
-        pdf = pdf.option('log', path.join(extras.destination, config.pdf.log));
+      if(_.get(config, 'log')) {
+        pdf = pdf.option('log', path.join(extras.destination, config.log));
       }
 
       pdf.inputs(path.join(extras.destination, "consolidated.html"))
