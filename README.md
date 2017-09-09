@@ -20,7 +20,12 @@ Much of the functionality of `magicbook` exists in the form of plugins, so if yo
 
 ## Getting Started
 
-First install the `magicbook` package:
+Previous requeriments, Install `prince` package:
+```bash
+brew cask install prince
+```
+
+Now install the `magicbook` package:
 
 ```bash
 npm install magicbook -g
