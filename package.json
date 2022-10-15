@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/magicbookproject/magicbook.git",
-  "version": "0.1.20",
+  "version": "0.1.30",
   "name": "magicbook",
   "description": "The magic book project is an open source framework for creating digital and print books",
   "author": "magicbookproject",
