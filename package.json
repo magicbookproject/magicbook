@@ -28,6 +28,7 @@
     "rev-hash": "^3.0.0",
     "rev-path": "^2.0.0",
     "sass": "^1.55.0",
+    "sharp": "^0.32.0",
     "slug": "^1.1.0",
     "stream-exhaust": "^1.0.2",
     "streamqueue": "^1.1.2",
