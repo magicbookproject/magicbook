@@ -6,6 +6,7 @@ var vfs = require("vinyl-fs");
 var through = require("through2");
 var streamHelpers = require("../helpers/stream");
 var cheerio = require("cheerio");
+var sharp = require("sharp");
 
 var Plugin = function(registry) {
   registry.before("load", "images:move", _.bind(this.moveImages, this));
@@ -27,6 +28,26 @@ function mapImages(imageMap, srcFolder, destFolder) {
     imageMap[relativeFrom] = relativeTo;
     cb(null, file);
   });
+}
+
+// Manipulate Images Colorspace using sharp
+function manipulateImagesColorspace(colorspace) {
+  return through.obj(async (file, _, cb) => {
+    if (file.isBuffer()) {
+      try {
+        const convertedFile = await sharp(file.contents)
+          .toColorspace(colorspace)
+          .toBuffer();
+
+        file.contents = convertedFile;
+        cb(null, file);
+      } catch (error) {
+        cb(new Error(`Error converting ${file.relative} to black and white: ${error.message}`));
+      }
+    } else {
+      cb(null, file);
+    }
+  })
 }
 
 // through2 pipe function that replaces images src attributes
@@ -89,6 +110,11 @@ Plugin.prototype = {
     // digest
     if (_.get(config, "images.digest")) {
       imagesStream = imagesStream.pipe(streamHelpers.digest());
+    }
+
+    // color manipulation
+    if (_.get(config, "images.colorspace")) {
+      imagesStream = imagesStream.pipe(manipulateImagesColorspace(config.images.colorspace));
     }
 
     // save map of old and new file names

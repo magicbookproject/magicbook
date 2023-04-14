@@ -406,6 +406,18 @@ The `digest` option will add a md5 checksum of the image content to the filename
 }
 ```
 
+### Colorspace
+
+You can specify the output images' `colorspace`. All images defined in the source files will be transformed utilizing [sharp](https://sharp.pixelplumbing.com/api-colour#tocolourspace).
+
+```json
+{
+  "images": {
+    "colorspace": "b-w"
+  }
+}
+```
+
 ## Stylesheets
 
 You can style all your builds using CSS or SCSS. The `stylesheets` configuration allows you to specify an array of `.css` or `.scss` files to include in the build. The following example shows a configuration file specifying two stylesheets to include in all builds.
