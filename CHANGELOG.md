@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.31
+
+* Added Feature: Image color space transformation
+
+## 0.1.30
+
+* `Apple M1` compatibility
+* Bumping `prince` version, and switch `node-sass` to `sass`
+
 ## 0.1.20
 
 * Fixing path issues on Windows
