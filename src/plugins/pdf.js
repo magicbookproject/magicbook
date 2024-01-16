@@ -50,6 +50,10 @@ Plugin.prototype = {
         pdf = pdf.timeout(config.prince.timeout);
       }
 
+      if (_.get(config, "prince.license")) {
+        pdf = pdf.license(config.prince.license);
+      }
+
       pdf.inputs(path.join(extras.destination, "consolidated.html"))
         .output(path.join(extras.destination, "consolidated.pdf"))
         .execute()
