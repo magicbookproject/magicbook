@@ -270,6 +270,7 @@ You can define settings for Prince XML.
 {
   "prince": {
     "log": "myfile.txt",
+    "license": "license.dat",
     "timeout": 300000
   }
 }
