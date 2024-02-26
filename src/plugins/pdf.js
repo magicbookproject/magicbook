@@ -50,8 +50,16 @@ Plugin.prototype = {
         pdf = pdf.timeout(config.prince.timeout);
       }
 
-      if (_.get(config, "prince.license")) {
+      if (_.get(config, 'prince.license')) {
         pdf = pdf.license(config.prince.license);
+      }
+
+      if (_.get(config, 'prince.javascript')) {
+        pdf = pdf.option('javascript', config.prince.javascript);
+      }
+
+      if (_.get(config, 'prince.maxPasses')) {
+        pdf = pdf.option('max-passes', config.prince.maxPasses, true);
       }
 
       pdf.inputs(path.join(extras.destination, "consolidated.html"))
