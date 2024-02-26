@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.32-33
+
+* Support Prince Options: `license`, `javascript`, `max-passes`
+
 ## 0.1.31
 
 * Added Feature: Image color space transformation
